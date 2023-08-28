@@ -1,7 +1,6 @@
 name: tutorial
 
-docker_env:
-  image: condaforge/mambaforge:latest
+conda_env: conda.yaml
 
 entry_points:
   main:
