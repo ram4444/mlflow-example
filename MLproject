@@ -1,6 +1,8 @@
 name: tutorial
 
 conda_env: conda.yaml
+docker_env:
+  image: mlflow-docker-example-environment
 
 entry_points:
   main:
