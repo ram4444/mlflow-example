@@ -48,7 +48,7 @@ if __name__ == "__main__":
     print("Tracking URI is : ", trackinguri)
     
     mlflow.set_tracking_uri(trackinguri)
-    mlflow.autolog()
+    #mlflow.autolog()
 
     with mlflow.start_run():
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
