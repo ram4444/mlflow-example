@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet
 
 import mlflow
-mlflow.set_tracking_uri(trackinguri)
+#mlflow.set_tracking_uri(trackinguri)
 #mlflow.autolog()
 import mlflow.sklearn
 
