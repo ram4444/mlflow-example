@@ -9,3 +9,4 @@ build_dependencies:
 dependencies:
   - mlflow==2.5
   - scikit-learn==1.0.2
+  - mysqlclient==2.2.0
