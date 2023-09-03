@@ -13,6 +13,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet
 
 import mlflow
+mlflow.set_tracking_uri(trackinguri)
+#mlflow.autolog()
 import mlflow.sklearn
 
 
@@ -46,9 +48,6 @@ if __name__ == "__main__":
     trackinguri = sys.argv[3] if len(sys.argv) > 3 else "http://somewhere:5000"
 
     print("Tracking URI is : ", trackinguri)
-    
-    mlflow.set_tracking_uri(trackinguri)
-    #mlflow.autolog()
 
     with mlflow.start_run():
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
