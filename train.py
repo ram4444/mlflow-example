@@ -44,6 +44,9 @@ if __name__ == "__main__":
     alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
     trackinguri = sys.argv[3] if len(sys.argv) > 3 else "http://somewhere:5000"
+
+    print("Tracking URI is : ", trackinguri)
+    
     mlflow.set_tracking_uri(trackinguri)
     mlflow.autolog()
 
