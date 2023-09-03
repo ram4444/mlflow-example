@@ -46,11 +46,11 @@ if __name__ == "__main__":
     trackinguri = sys.argv[3] if len(sys.argv) > 3 else "http://somewhere:5000"
 
     mlflow.set_tracking_uri(trackinguri)
-    mlflow.autolog()
 
     print("Tracking URI is : ", trackinguri)
 
     with mlflow.start_run():
+        mlflow.autolog()
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
         lr.fit(train_x, train_y)
 
