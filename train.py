@@ -15,6 +15,7 @@ from sklearn.linear_model import ElasticNet
 import mlflow
 import mlflow.sklearn
 
+mlflow.autolog()
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
@@ -50,7 +51,7 @@ if __name__ == "__main__":
     print("Tracking URI is : ", trackinguri)
 
     with mlflow.start_run():
-        mlflow.autolog()
+        
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
         lr.fit(train_x, train_y)
 
