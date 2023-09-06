@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
     #with mlflow.start_run():
 
-        run = mlflow.active_run()
+        #run = mlflow.active_run()
         print("Active run_id: {}".format(run.info.run_id))
         
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
