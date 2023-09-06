@@ -15,7 +15,8 @@ from sklearn.linear_model import ElasticNet
 import mlflow
 import mlflow.sklearn
 
-mlflow.autolog()
+logdir = "s3://dionystensorboardlogtest/"
+tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
@@ -26,6 +27,7 @@ def eval_metrics(actual, pred):
 
 
 if __name__ == "__main__":
+    mlflow.autolog()
     warnings.filterwarnings("ignore")
     np.random.seed(40)
 
@@ -53,7 +55,7 @@ if __name__ == "__main__":
     with mlflow.start_run():
         
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
-        lr.fit(train_x, train_y)
+        lr.fit(train_x, train_y, callbacks=[tensorboard_callback])
 
         predicted_qualities = lr.predict(test_x)
 
