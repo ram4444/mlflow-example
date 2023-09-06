@@ -13,12 +13,15 @@ from tensorflow import keras
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet
+from sklearn_genetic.callbacks import TensorBoard
+
 
 import mlflow
 import mlflow.sklearn
 
 logdir = "s3://dionystensorboardlogtest/"
-tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
+keras_tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
+sklearn_tensorboard_callback = TensorBoard(log_dir=logdir)
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
@@ -60,7 +63,7 @@ if __name__ == "__main__":
         #print("Active run_id: {}".format(run.info.run_id))
         
     lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
-    lr.fit(train_x, train_y, callbacks=[tensorboard_callback])
+    lr.fit(train_x, train_y, callbacks=sklearn_tensorboard_callback)
 
     predicted_qualities = lr.predict(test_x)
 
