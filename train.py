@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
     print("Tracking URI is : ", tracking_uri)
 
-    with mlflow.start_run():
+    #with mlflow.start_run():
 
         run = mlflow.active_run()
         print("Active run_id: {}".format(run.info.run_id))
@@ -78,4 +78,4 @@ if __name__ == "__main__":
         mlflow.log_metric("mae", mae)
 
         mlflow.sklearn.log_model(lr, "model")
-    mlflow.end_run()
+    #mlflow.end_run()
