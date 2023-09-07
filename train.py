@@ -21,7 +21,7 @@ import mlflow.sklearn
 
 logdir = "s3://dionystensorboardlogtest/"
 keras_tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
-sklearn_tensorboard_callback = TensorBoard(log_dir=""./sklearntblogs"")
+sklearn_tensorboard_callback = TensorBoard(log_dir="./sklearntblogs")
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
