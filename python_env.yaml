@@ -11,6 +11,6 @@ dependencies:
   - tensorflow
   - tensorflow_io
   - mlflow==2.5
-  - scikit-learn==1.0.2
+  - scikit-learn==1.1.0
   - sklearn-genetic-opt
   - mysqlclient==2.2.0
